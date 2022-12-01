@@ -1,0 +1,474 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Head -->
+    <%- include('partials/head'); %>
+
+    <!-- Custom Css -->
+    <link rel="stylesheet" href="css/style.css">
+  </head>
+  <body>
+    <div class="container-xxl bg-white p-0">
+        <!-- Spinner Start -->
+        <div id="spinner" class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
+            <div class="spinner-border text-primary" style="width: 3rem; height: 3rem;" role="status">
+                <span class="sr-only">Loading...</span>
+            </div>
+        </div>
+        <!-- Spinner End -->
+
+
+        <!-- Navbar & Hero Start -->
+        <div class="container-xxl position-relative p-0">
+            <nav class="navbar navbar-expand-lg navbar-dark bg-dark px-4 px-lg-5 py-3 py-lg-0">
+                <a href="/" class="navbar-brand p-0">
+                    <img src="img/logo.png" alt="Logo">
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+                    <span class="fa fa-bars"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarCollapse">
+                    <div class="navbar-nav ms-auto py-0 pe-4">
+                        <a href="/" class="nav-item nav-link">Home</a>
+                        <a href="menu" class="nav-item nav-link active">Menu</a>
+                        <a href="contact" class="nav-item nav-link">Contact</a>
+                    </div>
+                </div>
+            </nav>
+
+            <div class="container-xxl py-5 bg-dark hero-header mb-5">
+                <div class="container text-center my-5 pt-5 pb-4">
+                    <h1 class="display-3 text-white mb-3 animated slideInDown">Our Menu</h1>
+                    <nav aria-label="breadcrumb">
+                        <ol class="breadcrumb justify-content-center text-uppercase">
+                            <li class="breadcrumb-item"><a href="#">Home</a></li>
+                            <li class="breadcrumb-item"><a href="#">Pages</a></li>
+                            <li class="breadcrumb-item text-white active" aria-current="page">Menu</li>
+                        </ol>
+                    </nav>
+                </div>
+            </div>
+        </div>
+        <!-- Navbar & Hero End -->
+
+
+        <section id="menu"></section> <br>
+
+        <!-- Menu Start -->
+        <section id="menu">
+            <div class="container-xxl py-5">
+                <div class="container-fluid">
+                    <div class="text-center wow fadeInUp" data-wow-delay="0.1s">
+                        <h5 class="section-title ff-secondary text-center text-primary fw-normal">Food Menu</h5>
+                        <h1 class="mb-5">Our Most Popular Items</h1>
+                    </div>
+                    <div class="tab-class text-center wow fadeInUp" data-wow-delay="0.1s">
+                        <ul class="nav nav-pills d-inline-flex justify-content-center border-bottom mb-5">
+                            <li class="nav-item">
+                                <a class="d-flex align-items-center text-start mx-3 ms-0 pb-3 active" data-bs-toggle="pill" href="#tab-1">
+                                    <i class="fa fa-coffee fa-2x text-primary"></i>
+                                    <div class="ps-3">
+                                        <small class="text-body">Popular</small>
+                                        <h6 class="mt-n1 mb-0">Breakfast</h6>
+                                    </div>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="d-flex align-items-center text-start mx-3 ms-0 pb-3" data-bs-toggle="pill" href="#tab-2">
+                                    <i class="fa fa-wine-bottle fa-2x text-primary"></i>
+                                    <div class="ps-3">
+                                        <small class="text-body">Assorted</small>
+                                        <h6 class="mt-n1 mb-0">Drinks</h6>
+                                    </div>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="d-flex align-items-center text-start mx-3 pb-3" data-bs-toggle="pill" href="#tab-3">
+                                    <i class="fa fa-hamburger fa-2x text-primary"></i>
+                                    <div class="ps-3">
+                                        <small class="text-body">Special</small>
+                                        <h6 class="mt-n1 mb-0">Local</h6>
+                                    </div>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="d-flex align-items-center text-start mx-3 me-0 pb-3" data-bs-toggle="pill" href="#tab-4">
+                                    <i class="fa fa-utensils fa-2x text-primary"></i>
+                                    <div class="ps-3">
+                                        <small class="text-body">Lovely</small>
+                                        <h6 class="mt-n1 mb-0">Continental</h6>
+                                    </div>
+                                </a>
+                            </li>
+                        </ul>
+                        <div class="tab-content">
+                            <div id="tab-1" class="tab-pane fade show p-0 active">
+                                <div class="row g-4">
+                                    <% if(breakfast != '') { %>
+                                        <% breakfast.forEach(data => { %>
+                                            <div class="col-lg-3 mb-5">
+                                                <div class="produts-thumb">
+                                                    <div class="image wow fadeInDown animated">
+                                                        <a href="#"><img class="wow fadeInDown animated" src="img/products/<%= data.image %>" alt="food" title="food" width="<%= data.width %>"></a>
+                                                    </div>
+                                                    <div class="caption">
+                                                        <div class="rate-and-title">
+                                                            <h4 class="wow fadeInDown animated"><a href="#"><%= data.name %></a></h4>
+                                                            <div class="rating wow fadeInDown animated">
+                                                                <!-- <i class="fa fa-star"></i>
+                                                                <i class="fa fa-star"></i>
+                                                                <i class="fa fa-star-o"></i>
+                                                                <i class="fa fa-star-o"></i>
+                                                                <i class="fa fa-star-o"></i> -->
+                                                                <div class="clear"></div>
+                                                            </div>
+                                                            <p class="price wow fadeInDown animated">
+                                                                <span class="price-old"></span> <span class="price-new"><%= data.price %></span>  
+                                                            </p>
+                                                            <button type="button" class="btn btn-primary wow fadeInDown animated" title="Order Now" data-toggle="modal" data-target="<%= data.modal %>">Order Now</button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        <% }) %>
+                                    <% } else { %>
+                                        <p class="text-center">No items found.</p>
+                                    <% } %>
+                                </div>
+                            </div>
+                            <div id="tab-2" class="tab-pane fade show p-0">
+                                <div class="row g-4">
+                                    <div class="col-lg-3">
+                                        <div class="produts-thumb">
+                                            <div class="image wow fadeInDown animated">
+                                                <a href="#"><img class="wow fadeInDown animated" src="img/products/smoothie_1.png" alt="food" title="food" width="57%"></a>
+                                            </div>
+                                            <div class="caption">
+                                                <div class="rate-and-title">
+                                                    <h4 class="wow fadeInDown animated"><a href="#">Strawberry Smoothie</a></h4>
+                                                    <div class="rating wow fadeInDown animated">
+                                                        <!-- <i class="fa fa-star"></i>
+                                                        <i class="fa fa-star"></i>
+                                                        <i class="fa fa-star-o"></i>
+                                                        <i class="fa fa-star-o"></i>
+                                                        <i class="fa fa-star-o"></i> -->
+                                                        <div class="clear"></div>
+                                                    </div>
+                                                    <p class="price wow fadeInDown animated">
+                                                        <span class="price-old"></span> <span class="price-new">ȼ50.00</span>  
+                                                    </p>
+                                                    <button type="button" class="btn btn-primary wow fadeInDown animated" title="Order Now" data-toggle="modal" data-target="#exampleModalCenter">Order Now</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-3">
+                                        <div class="produts-thumb">
+                                            <div class="image wow fadeInDown animated">
+                                                <a href="#"><img class="wow fadeInDown animated" src="img/products/smoothie_2.png" alt="food" title="food" width="57%"></a>
+                                            </div>
+                                            <div class="caption">
+                                                <div class="rate-and-title">
+                                                    <h4 class="wow fadeInDown animated"><a href="#">Savory Smoothie</a></h4>
+                                                    <div class="rating wow fadeInDown animated">
+                                                        <!-- <i class="fa fa-star"></i>
+                                                        <i class="fa fa-star"></i>
+                                                        <i class="fa fa-star-o"></i>
+                                                        <i class="fa fa-star-o"></i>
+                                                        <i class="fa fa-star-o"></i> -->
+                                                        <div class="clear"></div>
+                                                    </div>
+                                                    <p class="price wow fadeInDown animated">
+                                                        <span class="price-old"></span> <span class="price-new">ȼ50.00</span>  
+                                                    </p>
+                                                    <button type="button" class="btn btn-primary wow fadeInDown animated" title="Order Now" data-toggle="modal" data-target="#exampleModalCenter">Order Now</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-3">
+                                        <div class="produts-thumb">
+                                            <div class="image wow fadeInDown animated">
+                                                <a href="#"><img class="wow fadeInDown animated" src="img/products/berry_smoothie.png" alt="food" title="food" width="75%"></a>
+                                            </div>
+                                            <div class="caption">
+                                                <div class="rate-and-title">
+                                                    <h4 class="wow fadeInDown animated"><a href="#">Blueberry Smoothie</a></h4>
+                                                    <div class="rating wow fadeInDown animated">
+                                                        <!-- <i class="fa fa-star"></i>
+                                                        <i class="fa fa-star"></i>
+                                                        <i class="fa fa-star-o"></i>
+                                                        <i class="fa fa-star-o"></i>
+                                                        <i class="fa fa-star-o"></i> -->
+                                                        <div class="clear"></div>
+                                                    </div>
+                                                    <p class="price wow fadeInDown animated">
+                                                        <span class="price-old"></span> <span class="price-new">ȼ50.00</span>  
+                                                    </p>
+                                                    <button type="button" class="btn btn-primary wow fadeInDown animated" title="Order Now" data-toggle="modal" data-target="#exampleModalCenter">Order Now</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div id="tab-3" class="tab-pane fade show p-0">
+                                <div class="row g-4">
+                                    
+                                    <div class="col-lg-3">
+                                        <div class="produts-thumb">
+                                            <div class="image wow fadeInDown animated">
+                                                <a href="#"><img class="wow fadeInDown animated" src="img/products/banku_with_fish.png" alt="food" title="food" width="60%"></a>
+                                            </div>
+                                            <div class="caption">
+                                                <div class="rate-and-title">
+                                                    <h4 class="wow fadeInDown animated"><a href="#">Banku with Fish</a></h4>
+                                                    <div class="rating wow fadeInDown animated">
+                                                        <!-- <i class="fa fa-star"></i>
+                                                        <i class="fa fa-star"></i>
+                                                        <i class="fa fa-star-o"></i>
+                                                        <i class="fa fa-star-o"></i>
+                                                        <i class="fa fa-star-o"></i> -->
+                                                        <div class="clear"></div>
+                                                    </div>
+                                                    <p class="price wow fadeInDown animated">
+                                                        <span class="price-old"></span> <span class="price-new">ȼ50.00</span>  
+                                                    </p>
+                                                    <button type="button" class="btn btn-primary wow fadeInDown animated" title="Order Now" data-toggle="modal" data-target="#exampleModalCenter">Order Now</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-3">
+                                        <div class="produts-thumb">
+                                            <div class="image wow fadeInDown animated">
+                                                <a href="#"><img class="wow fadeInDown animated" src="img/products/fufu.png" alt="food" title="food" width="60%"></a>
+                                            </div>
+                                            <div class="caption">
+                                                <div class="rate-and-title">
+                                                    <h4 class="wow fadeInDown animated"><a href="#">Fufu</a></h4>
+                                                    <div class="rating wow fadeInDown animated">
+                                                        <!-- <i class="fa fa-star"></i>
+                                                        <i class="fa fa-star"></i>
+                                                        <i class="fa fa-star-o"></i>
+                                                        <i class="fa fa-star-o"></i>
+                                                        <i class="fa fa-star-o"></i> -->
+                                                        <div class="clear"></div>
+                                                    </div>
+                                                    <p class="price wow fadeInDown animated">
+                                                        <span class="price-old"></span> <span class="price-new">ȼ50.00</span>  
+                                                    </p>
+                                                    <button type="button" class="btn btn-primary wow fadeInDown animated" title="Order Now" data-toggle="modal" data-target="#exampleModalCenter">Order Now</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-3">
+                                        <div class="produts-thumb">
+                                            <div class="image wow fadeInDown animated">
+                                                <a href="#"><img class="wow fadeInDown animated" src="img/products/jollof_rice.png" alt="food" title="food" width="72%"></a>
+                                            </div>
+                                            <div class="caption">
+                                                <div class="rate-and-title">
+                                                    <h4 class="wow fadeInDown animated"><a href="#">Jollof Rice with Chicken</a></h4>
+                                                    <div class="rating wow fadeInDown animated">
+                                                        <!-- <i class="fa fa-star"></i>
+                                                        <i class="fa fa-star"></i>
+                                                        <i class="fa fa-star-o"></i>
+                                                        <i class="fa fa-star-o"></i>
+                                                        <i class="fa fa-star-o"></i> -->
+                                                        <div class="clear"></div>
+                                                    </div>
+                                                    <p class="price wow fadeInDown animated">
+                                                        <span class="price-old"></span> <span class="price-new">ȼ50.00</span>  
+                                                    </p>
+                                                    <button type="button" class="btn btn-primary wow fadeInDown animated" title="Order Now" data-toggle="modal" data-target="#exampleModalCenter">Order Now</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-3">
+                                        <div class="produts-thumb">
+                                            <div class="image wow fadeInDown animated">
+                                                <a href="#"><img class="wow fadeInDown animated" src="img/products/rice_and_sauce.png" alt="food" title="food" width="97%"></a>
+                                            </div>
+                                            <div class="caption">
+                                                <div class="rate-and-title">
+                                                    <h4 class="wow fadeInDown animated"><a href="#">Rice and Sauce</a></h4>
+                                                    <div class="rating wow fadeInDown animated">
+                                                        <!-- <i class="fa fa-star"></i>
+                                                        <i class="fa fa-star"></i>
+                                                        <i class="fa fa-star-o"></i>
+                                                        <i class="fa fa-star-o"></i>
+                                                        <i class="fa fa-star-o"></i> -->
+                                                        <div class="clear"></div>
+                                                    </div>
+                                                    <p class="price wow fadeInDown animated">
+                                                        <span class="price-old"></span> <span class="price-new">ȼ50.00</span>  
+                                                    </p>
+                                                    <button type="button" class="btn btn-primary wow fadeInDown animated" title="Order Now" data-toggle="modal" data-target="#exampleModalCenter">Order Now</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div id="tab-4" class="tab-pane fade show p-0">
+                                <div class="row g-4">
+                                    
+                                    <div class="col-lg-3">
+                                        <div class="produts-thumb">
+                                            <div class="image wow fadeInDown animated">
+                                                <a href="#"><img class="wow fadeInDown animated" src="img/products/tacos.png" alt="food" title="food" width="70%"></a>
+                                            </div>
+                                            <div class="caption">
+                                                <div class="rate-and-title">
+                                                    <h4 class="wow fadeInDown animated"><a href="#">Tacos</a></h4>
+                                                    <div class="rating wow fadeInDown animated">
+                                                        <!-- <i class="fa fa-star"></i>
+                                                        <i class="fa fa-star"></i>
+                                                        <i class="fa fa-star-o"></i>
+                                                        <i class="fa fa-star-o"></i>
+                                                        <i class="fa fa-star-o"></i> -->
+                                                        <div class="clear"></div>
+                                                    </div>
+                                                    <p class="price wow fadeInDown animated">
+                                                        <span class="price-old"></span> <span class="price-new">ȼ50.00</span>  
+                                                    </p>
+                                                    <button type="button" class="btn btn-primary wow fadeInDown animated" title="Order Now" data-toggle="modal" data-target="#exampleModalCenter">Order Now</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-3">
+                                        <div class="produts-thumb">
+                                            <div class="image wow fadeInDown animated">
+                                                <a href="#"><img class="wow fadeInDown animated" src="img/products/spaghetti.png" alt="food" title="food" width="60%"></a>
+                                            </div>
+                                            <div class="caption">
+                                                <div class="rate-and-title">
+                                                    <h4 class="wow fadeInDown animated"><a href="#">Spaghetti</a></h4>
+                                                    <div class="rating wow fadeInDown animated">
+                                                        <!-- <i class="fa fa-star"></i>
+                                                        <i class="fa fa-star"></i>
+                                                        <i class="fa fa-star-o"></i>
+                                                        <i class="fa fa-star-o"></i>
+                                                        <i class="fa fa-star-o"></i> -->
+                                                        <div class="clear"></div>
+                                                    </div>
+                                                    <p class="price wow fadeInDown animated">
+                                                        <span class="price-old"></span> <span class="price-new">ȼ50.00</span>  
+                                                    </p>
+                                                    <button type="button" class="btn btn-primary wow fadeInDown animated" title="Order Now" data-toggle="modal" data-target="#exampleModalCenter">Order Now</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-3">
+                                        <div class="produts-thumb">
+                                            <div class="image wow fadeInDown animated">
+                                                <a href="#"><img class="wow fadeInDown animated" src="img/products/tofu.png" alt="food" title="food" width="70%"></a>
+                                            </div>
+                                            <div class="caption">
+                                                <div class="rate-and-title">
+                                                    <h4 class="wow fadeInDown animated"><a href="#">Tofu</a></h4>
+                                                    <div class="rating wow fadeInDown animated">
+                                                        <!-- <i class="fa fa-star"></i>
+                                                        <i class="fa fa-star"></i>
+                                                        <i class="fa fa-star-o"></i>
+                                                        <i class="fa fa-star-o"></i>
+                                                        <i class="fa fa-star-o"></i> -->
+                                                        <div class="clear"></div>
+                                                    </div>
+                                                    <p class="price wow fadeInDown animated">
+                                                        <span class="price-old"></span> <span class="price-new">ȼ50.00</span>  
+                                                    </p>
+                                                    <button type="button" class="btn btn-primary wow fadeInDown animated" title="Order Now" data-toggle="modal" data-target="#exampleModalCenter">Order Now</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-3">
+                                        <div class="produts-thumb">
+                                            <div class="image wow fadeInDown animated">
+                                                <a href="#"><img class="wow fadeInDown animated" src="img/products/steak.png" alt="food" title="food" width="70%"></a>
+                                            </div>
+                                            <div class="caption">
+                                                <div class="rate-and-title">
+                                                    <h4 class="wow fadeInDown animated"><a href="#">Steak</a></h4>
+                                                    <div class="rating wow fadeInDown animated">
+                                                        <!-- <i class="fa fa-star"></i>
+                                                        <i class="fa fa-star"></i>
+                                                        <i class="fa fa-star-o"></i>
+                                                        <i class="fa fa-star-o"></i>
+                                                        <i class="fa fa-star-o"></i> -->
+                                                        <div class="clear"></div>
+                                                    </div>
+                                                    <p class="price wow fadeInDown animated">
+                                                        <span class="price-old"></span> <span class="price-new">ȼ50.00</span>  
+                                                    </p>
+                                                    <button type="button" class="btn btn-primary wow fadeInDown animated" title="Order Now" data-toggle="modal" data-target="#exampleModalCenter">Order Now</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Menu End -->
+              
+            <!-- Modal -->
+            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+              <div class="modal-dialog">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="exampleModalLabel">Akpenle</h1>
+                    <img src="img/akpele.jpg" alt="" class="img-fluid" height="120px" width="180px">
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                  </div>
+                  <div class="modal-body">
+                    ...
+                  </div>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary">Save changes</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- Modal End -->
+    
+    
+    <!-- Footer -->
+    <footer>
+      <%- include('partials/footer'); %>
+    </footer>
+    <!-- Footer End -->
+
+    <!-- Back to Top -->
+    <a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top"><i class="bi bi-arrow-up"></i></a>
+
+    <!-- Bootstrap Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
+
+    <!-- JavaScript Libraries -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/modaal@0.4.4/dist/js/modaal.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="lib/wow/wow.min.js"></script>
+    <script src="lib/easing/easing.min.js"></script>
+    <script src="lib/waypoints/waypoints.min.js"></script>
+    <script src="lib/counterup/counterup.min.js"></script>
+    <script src="lib/owlcarousel/owl.carousel.min.js"></script>
+    <script src="lib/tempusdominus/js/moment.min.js"></script>
+    <script src="lib/tempusdominus/js/moment-timezone.min.js"></script>
+    <script src="lib/tempusdominus/js/tempusdominus-bootstrap-4.min.js"></script>
+
+    <!-- Main Script -->
+    <script src="js/main.js"></script>
+  </body>
+</html>
