@@ -225,6 +225,45 @@
     color: var(--light) !important;
 }
 
+/***  Menu  ***/
+#menu {
+    background: url('../img/bg-section.jpg');
+}
+
+#menu .container .tab-content .tab-pane .row .col-lg-3 .produts-thumb {
+    min-height: 370px;
+    border: 2px dashed #eeeeee;
+	background: #ffffff;
+}
+
+#menu .container .tab-content .tab-pane .row .col-lg-3 .image {
+    margin-top: 25px;
+    margin-bottom: 40px;
+    position: relative;
+}
+
+#menu .container .tab-content .tab-pane .row .col-lg-3 .caption h4 a {
+    color: black;
+    font-size: 20px;
+    font-weight: normal;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    /* width: 100%; */
+}
+
+#menu .container .tab-content .tab-pane .row .col-lg-3 .caption h4 a:hover {
+    color: var(--primary);
+}
+
+#menu .container .tab-content .tab-pane .row .col-lg-3 .caption button {
+    margin-bottom: 90px;
+    border-radius: 20px;
+}
+
+#menu .container .tab-content .tab-pane .row .col-lg-3 {
+    color: var(--primary);
+    font-weight: bold;
+    font-size: 1.0rem;
+}
 
 /*** Food Menu ***/
 .nav-pills .nav-item .active {
