@@ -265,6 +265,58 @@
     font-size: 1.0rem;
 }
 
+#menu .container .tab-content .tab-pane .row .modal-content {
+    background-color: #ffffff;
+    border-radius: 5px;
+	border: 0;
+}
+
+.modal .form-control {
+    border: 1px dashed #eeeeee;
+    border-radius: .25rem;
+	outline: 0;
+}
+.modal .form-control:focus {
+    outline: 0;
+    box-shadow: none;
+}
+.modal .modal-header {
+    background: #222222;
+	border: 0;
+}
+.modal .modal-header button {
+    background: #222222;
+	border: 0;
+    font-size: 25px;
+}
+.modal .modal-body img {
+    border-radius: 20px 20px 30px 30px;
+}
+.modal .modal-footer {
+    border-top: 1px dashed #eee;
+    background: #fffaf3;
+}
+.modal .modal-footer button {
+    border-radius: 20px;
+}
+.modal button.close {
+    outline: 0;
+}
+.modal .modal-header h4
+{
+	color:#ffffff;
+}
+.modal .close {
+    float: right;
+    color: #ffffff;
+    text-shadow: none;
+    opacity: 1;
+	-webkit-transition: all 0.5s;
+    -o-transition: all 0.5s;
+    -ms-transition: all 0.5s;
+    -moz-transition: all 0.5s;
+    transition: all 0.5s;
+}
 /*** Food Menu ***/
 .nav-pills .nav-item .active {
     border-bottom: 2px solid var(--primary);
