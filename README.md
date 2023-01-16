@@ -14,5 +14,10 @@ To run this project, install it locally using npm:
 ```
 $ npm install
 $ node server.js
+```
+
+## Run this command if you have nodemon installed locally using npm:
+
+```
 $ nodemon server.js
 ```
