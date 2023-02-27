@@ -106,7 +106,7 @@
                                 <div class="row g-4">
                                     <% if(breakFast != '') { %>
                                         <% breakFast.forEach(data => { %>
-                                            <div class="col-lg-3 mb-5">
+                                            <div class="col-lg-3">
                                                 <div class="produts-thumb">
                                                     <div class="image wow fadeInDown animated">
                                                         <a href="#"><img class="wow fadeInDown animated" src="img/products/<%= data.image %>" alt="food" title="food" width="<%= data.width %>"></a>
@@ -143,11 +143,11 @@
                                             <div class="col-lg-3">
                                                 <div class="produts-thumb">
                                                     <div class="image wow fadeInDown animated">
-                                                        <a href="#"><img class="wow fadeInDown animated" src="img/products/smoothie_1.png" alt="food" title="food" width="57%"></a>
+                                                        <a href="#"><img class="wow fadeInDown animated" src="img/products/<%= data.image %>" alt="food" title="food" width="<%= data.width %>"></a>
                                                     </div>
                                                 <div class="caption">
                                                     <div class="rate-and-title">
-                                                        <h4 class="wow fadeInDown animated"><a href="#">Strawberry Smoothie</a></h4>
+                                                        <h4 class="wow fadeInDown animated"><a href="#"><%- data.name %></a></h4>
                                                         <div class="rating wow fadeInDown animated">
                                                             <!-- <i class="fa fa-star"></i>
                                                             <i class="fa fa-star"></i>
@@ -157,9 +157,9 @@
                                                             <div class="clear"></div>
                                                         </div>
                                                         <p class="price wow fadeInDown animated">
-                                                            <span class="price-old"></span> <span class="price-new">ȼ50.00</span>  
+                                                            <span class="price-old"></span> <span class="price-new"><%= data.price %></span>  
                                                         </p>
-                                                        <button type="button" class="btn btn-primary wow fadeInDown animated" data-bs-toggle="modal" data-bs-target="#exampleModal">Order Now</button>
+                                                        <button type="button" class="btn btn-primary wow fadeInDown animated" data-bs-toggle="modal" data-bs-target="<%= data.modal %>">Order Now</button>
                                                      </div>
                                                 </div>
                                             </div>
@@ -177,11 +177,11 @@
                                             <div class="col-lg-3">
                                                 <div class="produts-thumb">
                                                     <div class="image wow fadeInDown animated">
-                                                        <a href="#"><img class="wow fadeInDown animated" src="img/products/banku_with_fish.png" alt="food" title="food" width="60%"></a>
+                                                        <a href="#"><img class="wow fadeInDown animated" src="img/products/<%= data.image %>" alt="food" title="food" width="<%= data.width %>"></a>
                                                     </div>
                                                     <div class="caption">
                                                         <div class="rate-and-title">
-                                                            <h4 class="wow fadeInDown animated"><a href="#">Banku with Fish</a></h4>
+                                                            <h4 class="wow fadeInDown animated"><a href="#"><%- data.name %></a></h4>
                                                             <div class="rating wow fadeInDown animated">
                                                                 <!-- <i class="fa fa-star"></i>
                                                                 <i class="fa fa-star"></i>
@@ -191,9 +191,9 @@
                                                                 <div class="clear"></div>
                                                             </div>
                                                             <p class="price wow fadeInDown animated">
-                                                                <span class="price-old"></span> <span class="price-new">ȼ50.00</span>  
+                                                                <span class="price-old"></span> <span class="price-new"><%= data.price %></span>  
                                                             </p>
-                                                            <button type="button" class="btn btn-primary wow fadeInDown animated" data-bs-toggle="modal" data-bs-target="#exampleModal">Order Now</button>
+                                                            <button type="button" class="btn btn-primary wow fadeInDown animated" data-bs-toggle="modal" data-bs-target="<%= data.modal %>">Order Now</button>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -211,11 +211,11 @@
                                             <div class="col-lg-3">
                                                 <div class="produts-thumb">
                                                     <div class="image wow fadeInDown animated">
-                                                        <a href="#"><img class="wow fadeInDown animated" src="img/products/tacos.png" alt="food" title="food" width="70%"></a>
+                                                        <a href="#"><img class="wow fadeInDown animated" src="img/products/<%= data.image %>" alt="food" title="food" width="<%= data.width %>"></a>
                                                     </div>
                                                     <div class="caption">
                                                         <div class="rate-and-title">
-                                                            <h4 class="wow fadeInDown animated"><a href="#">Tacos</a></h4>
+                                                            <h4 class="wow fadeInDown animated"><a href="#"><%- data.name %></a></h4>
                                                             <div class="rating wow fadeInDown animated">
                                                                 <!-- <i class="fa fa-star"></i>
                                                                 <i class="fa fa-star"></i>
@@ -225,9 +225,9 @@
                                                                 <div class="clear"></div>
                                                             </div>
                                                            <p class="price wow fadeInDown animated">
-                                                               <span class="price-old"></span> <span class="price-new">ȼ50.00</span>  
+                                                               <span class="price-old"></span> <span class="price-new"><%= data.price %></span>  
                                                            </p>
-                                                           <button type="button" class="btn btn-primary wow fadeInDown animated" title="Order Now" data-bs-toggle="modal" data-bs-target="#exampleModal">Order Now</button>
+                                                           <button type="button" class="btn btn-primary wow fadeInDown animated" title="Order Now" data-bs-toggle="modal" data-bs-target="<%= data.modal %>">Order Now</button>
                                                        </div>
                                                     </div>
                                                 </div>
