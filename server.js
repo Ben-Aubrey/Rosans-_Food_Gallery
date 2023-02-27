@@ -6,7 +6,7 @@ const app = express()
 
 // configure other parts of app
 const router = require('./public/src/routes/index')
-const connection = require('./public/src/services/database')
+const db = require('./public/src/services/database')
 const path = require('path')
 const port = process.env.PORT || 4000
 
@@ -29,7 +29,12 @@ app.use(express.static(path.join(__dirname, './public')));
 app.use('/', router)
 
 // database connection
-connection.connectDB()
-.then(app.listen(port, () => {
-    console.log('Server listening on port: ' + port)
-}))
+db.connect()
+.then(() => {
+    app.listen(port, () => {
+        console.log('Server listening on port: ' + port)
+    })
+})
+.catch(error => {
+    console.error(error)
+})
