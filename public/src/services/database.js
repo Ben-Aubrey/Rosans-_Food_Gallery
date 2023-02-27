@@ -1,18 +1,73 @@
 require('dotenv').config()
 const { MongoClient } = require('mongodb')
 
-const uri = process.env.MONGODB_URI   // connection uri
-const client = new MongoClient(uri)   // creates a new MongoClient
+class Database {
+    constructor() {
+        const uri = process.env.MONGODB_URI   // connection uri
+        const dbName = process.env.DATABASE_NAME
+        this.client = new MongoClient(uri, { useNewUrlParser: true });
+        this.db = null
+    }
 
-module.exports.connectDB = async () => {
-    await client.connect()   // connect the client to the server
-    console.log('Successfully connected to Cluster')
+    async connect() {
+        try {
+            await this.client.connect()
+            this.db = this.client.db(process.env.DATABASE_NAME)
+            console.log('Successfully connected to the database')
+        } catch (error) {
+            console.log(error)
+        }
+    }
+    
+    async insertOne(collectionName, data) {
+        try {
+            const collection = this.db.collection(collectionName)
+            const result = await collection.insertOne(data)
+            return result
+        } catch (error) {
+            console.log(error)
+        }
+    }
+    
+    async updateOne(collectionName, filter, update) {
+        try {
+            const collection = this.db.collection(collectionName)
+            const result = await collection.updateOne(filter, { $set: update })
+            return result
+        } catch (error) {
+            console.log(error)
+        }
+    }
+    
+    async deleteOne(collectionName, filter) {
+        try {
+            const collection = this.db.collection(collectionName)
+            const result = await collection.deleteOne(filter)
+            return result
+        } catch (error) {
+            console.log(error)
+        }
+    }
+
+    async find(collectionName, filter) {
+        try {
+            const collection = this.db.collection(collectionName)
+            const result = await collection.find(filter).toArray()
+            return result
+        } catch (error) {
+            console.log(error)
+        }
+    }
+
+    async close() {
+        try {
+            await this.client.close()
+            console.log('Successfully disconnected from the database')
+        } catch (error) {
+            console.log(error)
+        }
+    }
 }
 
-module.exports.getDB = () => {
-    return client.db(process.env.DATABASE_NAME)   // return Rosan database
-}
+module.exports = new Database();
 
-module.exports.close = () => {
-    return client.close()   // closes the client
-}
