@@ -1,41 +1,46 @@
 const express = require('express')
 const router = express.Router()
-const services = require('../services/database')
+require('dotenv').config
+const db = require('../services/database')
 
 router.get('/', async(req, res) => {  // root route or home route
     try {
         // load up some documents
-        const service_Tab = await services.getDB().collection('index_service_cards').find({}).toArray()
+        const service_Tab = await db.find('index_service_cards', {})
                 
         // render loads up an ejs file
         res.render('index', {
             title: 'Home - Rosan\'s Food Gallery',
-            indexData: service_Tab
+            service_Tab
         })
     } catch (error) {
-        // error message = next(error)
-    }
+        console.error(error)
+    } finally {
+        // db.close()
+    }    
 })
 
 router.get('/menu', async(req, res) => {  // menu route
     try {
         // load up some documents
-        const breakfast = await services.getDB().collection('index_breakfast_menu').find({}).toArray()
-        // const drinks = await services.getDB.collection('index_drinks_menu').find({}).toArray()
-        // const local = await services.getDB.collection('index_local_menu').find({}).toArray()
-        // const continental = await services.getDB.collection('index_continental_menu').find({}).toArray()
+        const breakFast = await db.find('index_breakfast_menu', {})
+        const drinks = await db.find('index_drinks_menu', {})
+        const local = await db.find('index_local_menu', {})
+        const continental = await db.find('index_continental_menu', {})
 
         // render loads up an ejs file
         res.render('menu', {
             title: 'Menu - Rosan\'s Food Gallery',
-            breakfast,
-            // drinks,
-            // local,
-            // continental
+            breakFast,
+            drinks,
+            local,
+            continental
         })
     } catch (error) {
-        // error message
-    }
+        console.error(error)
+    } finally {
+        // db.close()
+    }    
 })
 
 router.get('/contact', async(req, res) => {  // contact route
@@ -46,7 +51,7 @@ router.get('/contact', async(req, res) => {  // contact route
             // contactData: data
         })
     } catch (error) {
-        // error message
+        console.error(error)
     }
 })
 
