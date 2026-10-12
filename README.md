@@ -21,3 +21,21 @@ $ node server.js
 ```
 $ nodemon server.js
 ```
+
+## Screenshots
+
+## Homepage
+![Homepage](screenshots/rosans-1.png)
+
+## Menu
+![Menu](screenshots/rosans-5.png)
+
+## Contact
+![Contact](screenshots/rosans-7.png)
+
+## Other
+![Video section](screenshots/rosans-2.png)
+![Images section](screenshots/rosans-3.png)
+![Footer](screenshots/rosans-4.png)
+![Menu Items](screenshots/rosans-6.png)
+![Find Us](screenshots/rosans-8.png)
